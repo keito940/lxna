@@ -1,38 +1,45 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
-    <DefineConstants>DEBUG</DefineConstants>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Compile Update="**\*.xaml.cs">
-      <DependentUpon>%(Filename)</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="**\*.xaml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
+    <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
+
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.9.3" />
-    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.9.3" />
-    <PackageReference Include="Avalonia.Desktop" Version="0.9.3" />
-    <PackageReference Include="Avalonia.Skia" Version="0.9.3" />
-    <PackageReference Include="Avalonia.Xaml.Behaviors" Version="0.9.3" />
-    <PackageReference Include="Avalonia.Xaml.Interactions" Version="0.9.3" />
-    <PackageReference Include="Avalonia.Xaml.Interactivity" Version="0.9.3" />
-    <PackageReference Include="NLog.Config" Version="4.6.8" />
-    <PackageReference Include="ReactiveProperty" Version="6.2.0" />
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
+
   <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.6" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.6" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.6" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.6" />
+    <PackageReference Include="Avalonia.Skia" Version="0.10.6" />
+    <PackageReference Include="Avalonia.Xaml.Behaviors" Version="0.10.6" />
+    <PackageReference Include="Avalonia.Xaml.Interactions" Version="0.10.6" />
+    <PackageReference Include="Avalonia.Xaml.Interactivity" Version="0.10.6" />
+    <PackageReference Include="NLog" Version="4.7.10" />
+    <PackageReference Include="NLog.Config" Version="4.7.10" />
+    <PackageReference Include="ReactiveProperty" Version="7.11.0" />
+    <PackageReference Include="Nito.AsyncEx" Version="5.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\refs\core\src\Omnius.Core.Collections\Omnius.Core.Collections.csproj" />
+    <ProjectReference Include="..\..\refs\core\src\Omnius.Core.Cryptography\Omnius.Core.Cryptography.csproj" />
+    <ProjectReference Include="..\..\refs\core\src\Omnius.Core.Streams\Omnius.Core.Streams.csproj" />
     <ProjectReference Include="..\..\refs\core\src\Omnius.Core.Network\Omnius.Core.Network.csproj" />
-    <ProjectReference Include="..\..\refs\core\src\Omnius.Core.Ui.Avalonia\Omnius.Core.Ui.Avalonia.csproj" />
-    <ProjectReference Include="..\Omnius.Lxna.Service.Implements\Omnius.Lxna.Service.Implements.csproj" />
-    <ProjectReference Include="..\Omnius.Lxna.Service\Omnius.Lxna.Service.csproj" />
+    <ProjectReference Include="..\..\refs\core\src\Omnius.Core.RocketPack.Remoting\Omnius.Core.RocketPack.Remoting.csproj" />
+    <ProjectReference Include="..\..\refs\core\src\Omnius.Core.RocketPack\Omnius.Core.RocketPack.csproj" />
+    <ProjectReference Include="..\..\refs\core\src\Omnius.Core.Serialization\Omnius.Core.Serialization.csproj" />
+    <ProjectReference Include="..\..\refs\core\src\Omnius.Core\Omnius.Core.csproj" />
+    <ProjectReference Include="..\Omnius.Lxna.Components\Omnius.Lxna.Components.csproj" />
+    <ProjectReference Include="..\Omnius.Lxna.Components.Implementations\Omnius.Lxna.Components.Implementations.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Views\Main\MainView.xaml.cs">
-      <DependentUpon>MainView.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
+
 </Project>

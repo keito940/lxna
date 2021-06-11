@@ -1,7 +1,8 @@
 # Lxna - File manager
 
-[![](https://github.com/omnius-labs/lxna/workflows/Builds/badge.svg)](https://github.com/omnius-labs/lxna/actions)
+[![Test](https://github.com/omnius-labs/lxna/actions/workflows/test.yml/badge.svg)](https://github.com/omnius-labs/lxna/actions/workflows/test.yml)
+[![Gitter](https://badges.gitter.im/omnius-labs/lxna.svg)](https://gitter.im/omnius-labs/lxna?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## Website
 
-+ <https://docs.omnius-labs.com/ja/projects/lxna/>
++ <https://docs.omnius-labs.com/>

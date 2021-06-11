@@ -1,8 +1,16 @@
 # Custom
 tmp/
+pub/
+patch.txt
+demo/.state/*
+
+# Environment
+.env
 
 # Visual Studio Code
-.vscode/
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
 
 # Tool Runtime Dir
 /[Tt]ools/

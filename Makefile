@@ -1,18 +1,32 @@
-init-tools:
-	sh ./eng/init-tools.sh
+PreviewXamlFile := Views/Windows/Main/MainWindow.axaml
 
 gen-code:
-	sh ./eng/gen-code.sh
+	bash ./eng/gen-code.sh
 
 test:
-	sh ./eng/run-test.sh
+	dotnet test --no-restore --filter "FullyQualifiedName~Omnius.Lxna"
 
-update-submodule:
-	sh ./eng/update-submodule.sh
+build:
+	dotnet build
+
+run-designer: build
+	dotnet msbuild ./src/Omnius.Lxna.Ui.Desktop/ /t:Preview /p:XamlFile=$(PreviewXamlFile)
+
+format:
+	dotnet tool run dotnet-format
+
+update-nugut:
+	dotnet tool run nukeeper update
+
+update-dotnet-tool:
+	bash ./eng/update-dotnet-tool.sh
+
+update-sln:
+	bash ./eng/update-sln.sh
 
 clean:
 	rm -rf ./bin
 	rm -rf ./tmp
-	rm -rf ./publish
+	rm -rf ./pub
 
-.PHONY: all test clean
+.PHONY: test build

@@ -1,0 +1,43 @@
+name: Test
+
+on: [push]
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1.8.0
+        with:
+          dotnet-version: 5.0.102
+      - name: Setup dotnet tool
+        run: dotnet tool restore
+      - name: format-check
+        run: dotnet format --check
+      # - name: Install dependencies
+      #   run: dotnet restore
+      # - name: Build
+      #   run: dotnet build --configuration Release --no-restore
+      # - name: Test
+      #   run: dotnet test --no-restore --verbosity normal --filter "FullyQualifiedName~Omnius.Xeus"
+  windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1.8.0
+        with:
+          dotnet-version: 5.0.102
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+      - name: Test
+        run: dotnet test --no-restore --verbosity normal --filter "FullyQualifiedName~Omnius.Xeus"
